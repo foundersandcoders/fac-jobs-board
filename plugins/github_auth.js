@@ -7,7 +7,7 @@ const authHandler = (req, reply, tokens, profile) => {
     // get orgs
     const token = JWT.sign(profile, process.env.JWT_SECRET);
 
-    return reply.redirect('/jobs')
+    return reply.redirect('/')
       .state('token', token, { path: '/' })
     }
   else {
@@ -53,6 +53,15 @@ const register = (server, options, next) => {
       ttl: null,
       isSecure: false,
       isHttpOnly: false,
+    })
+
+    server.ext("onPreResponse", function (request, reply) {
+      const responseOutput = request.response.output
+
+      if (responseOutput && responseOutput.statusCode === 401)
+        return reply.redirect('/login')
+
+      reply.continue()
     })
   })
   next()
