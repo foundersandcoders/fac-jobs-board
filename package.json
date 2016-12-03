@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/foundersandcoders/fac-jobs-board#readme",
   "dependencies": {
+    "env2": "^2.1.1",
+    "hapi-auth-github": "^2.0.0",
+    "jsonwebtoken": "^7.1.9",
     "handlebars": "^4.0.6",
     "hapi": "^16.0.1",
     "inert": "^4.0.3",
