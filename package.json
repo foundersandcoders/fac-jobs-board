@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node start_server.js",
-    "postgres": "postgres -D /usr/local/var/postgres"
+    "postgres": "postgres -D /usr/local/var/postgres",
+    "heroku:postgres": "heroku pg:psql --app fac-jobs-board",
+    "load-schema": "heroku pg:psql --app fac-jobs-board < ./db/schema.txt"
   },
   "repository": {
     "type": "git",

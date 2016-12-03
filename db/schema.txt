@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS jobs CASCADE
+DROP TABLE IF EXISTS jobs CASCADE;
 
 /********* create tables ********/
 
@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS jobs (
   job_title TEXT NOT NULL,
   company TEXT NOT NULL,
   description TEXT NOT NULL
-)
+);
 
 COMMIT;
