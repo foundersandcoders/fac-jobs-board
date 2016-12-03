@@ -6,6 +6,7 @@ const Vision = require('vision')
 require('env2')('.env')
 
 const githubAuth = require('./plugins/github_auth.js')
+const initHandlebars = require('./plugins/handlebars.js')
 const jobsEndpoint = require('./routes/jobs.js');
 const listJobEndpoint = require('./routes/list-job.js');
 
@@ -14,24 +15,6 @@ const port = process.env.PORT || 4000
 const server = new Hapi.Server()
 
 server.connection({ port })
-
-const initHandlebars = (server, options, next) => {
-  server.views({
-    engines: { html: Handlebars },
-    relativeTo: './templates',
-    path: '.',
-    layout: 'default',
-    layoutPath: 'layout',
-    helpersPath: 'helpers',
-    partialsPath: 'partials',
-    isCached: false
-  })
-  next()
-}
-
-initHandlebars.attributes = {
-  name: 'initHandlebars'
-}
 
 server.register([
   Inert,
