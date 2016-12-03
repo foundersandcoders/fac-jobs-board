@@ -11,7 +11,7 @@ const authHandler = (req, reply, tokens, profile) => {
       .state('token', token, { path: '/' })
     }
   else {
-    return reply("Sorry, something went wrong, please try again.").code(401);
+    return reply("Sorry, something went wrong, please try again.").code(401)
   }
 }
 

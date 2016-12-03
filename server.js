@@ -6,8 +6,6 @@ const Handlebars = require('handlebars')
 require('env2')('.env')
 
 const githubAuth = require('./plugins/github_auth.js')
-// const initHandlebars = require('./plugins/handlebars.js')
-
 const jobsEndpoint = require('./routes/jobs.js');
 const listJobEndpoint = require('./routes/list-job.js');
 const homepageEndpoint = require('./routes/homepage.js');
@@ -42,6 +40,7 @@ server.register([
   server.route({
     method: 'GET',
     path: '/{param*}',
+    config: { auth: false },
     handler: {
       directory: {
         path: './assets',
@@ -50,8 +49,6 @@ server.register([
       }
     }
   })
-
-  console.log('done!');
 })
 
 module.exports = server;
