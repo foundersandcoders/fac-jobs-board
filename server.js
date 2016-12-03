@@ -3,27 +3,30 @@ const Inert = require('inert')
 const Handlebars = require('handlebars')
 const Vision = require('vision')
 
+const jobsEndpoint = require('./routes/jobs.js');
+
 const port = process.PORT || 4000
 
 const server = new Hapi.Server()
 
 server.connection({ port })
 
-server.register([Inert, Vision], err => {
+server.register([Inert, Vision, jobsEndpoint], err => {
   if (err) throw err
 
   server.views({
     engines: { html: Handlebars },
     relativeTo: __dirname,
-    path: 'templates'
+    path: 'templates',
+    isCached: false
   })
 
   server.route({
     method: 'GET',
-    path: '/assets/{param*}',
+    path: '/{param*}',
     handler: {
       directory: {
-        path: '../assets',
+        path: './assets',
         redirectToSlash: true,
         index: false
       }
