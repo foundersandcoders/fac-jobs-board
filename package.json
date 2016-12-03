@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/foundersandcoders/fac-jobs-board/issues"
   },
-  "homepage": "https://github.com/foundersandcoders/fac-jobs-board#readme"
+  "homepage": "https://github.com/foundersandcoders/fac-jobs-board#readme",
+  "dependencies": {
+    "env2": "^2.1.1",
+    "hapi-auth-github": "^2.0.0",
+    "jsonwebtoken": "^7.1.9"
+  }
 }
