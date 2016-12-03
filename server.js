@@ -5,7 +5,7 @@ const Vision = require('vision')
 
 const jobsEndpoint = require('./routes/jobs.js');
 
-const port = process.PORT || 4000
+const port = process.env.PORT || 4000
 
 const server = new Hapi.Server()
 
