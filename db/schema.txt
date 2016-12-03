@@ -12,4 +12,12 @@ CREATE TABLE IF NOT EXISTS jobs (
   description TEXT NOT NULL
 );
 
+/********* insert fake jobs ********/
+
+INSERT INTO jobs (job_title, company, description)
+  VALUES
+    ('Developer', 'FAC', 'Looking for a Great person to join us at FAC'),
+    ('Developer', 'DWYL', 'Looking for a Great person to join us at DWYL'),
+    ('Intern', 'FAC', 'Looking for a Great person to join us at FAC');
+
 COMMIT;
