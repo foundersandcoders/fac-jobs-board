@@ -27,10 +27,11 @@ authOpts = {
 }
 
 const githubAuth = {
-register: hapiAuthGithub,
-options: {
-  handler: authHandler,
-  SCOPE: 'user'
+  register: hapiAuthGithub,
+  options: {
+    handler: authHandler,
+    SCOPE: 'user'
+  }
 }
 
 const register = (server, options, next) => {
