@@ -1,10 +1,9 @@
 const register = (server, options, next) => {
   server.route({
     method: 'GET',
-    path: '/list-job',
-    config: { auth: false },
+    path: '/',
     handler: (request, reply) => {
-      reply.view('list-job')
+      reply.view('index')
     }
   })
 
@@ -12,7 +11,7 @@ const register = (server, options, next) => {
 }
 
 register.attributes = {
-  name: 'listJobEndpoint'
+  name: 'homepageEndpoint'
 }
 
 module.exports = register
