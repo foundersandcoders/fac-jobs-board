@@ -5,7 +5,7 @@ const Vision = require('vision')
 
 require('env2')('.env')
 
-const githubAuth = require('./github_auth.js')
+const githubAuth = require('./plugins/github_auth.js')
 const jobsEndpoint = require('./routes/jobs.js');
 const listJobEndpoint = require('./routes/list-job.js');
 
