@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node start_server.js",
+    "postgres": "postgres -D /usr/local/var/postgres",
+    "heroku:postgres": "heroku pg:psql --app fac-jobs-board",
+    "load-schema": "heroku pg:psql --app fac-jobs-board < ./db/schema.txt"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,15 @@
   "bugs": {
     "url": "https://github.com/foundersandcoders/fac-jobs-board/issues"
   },
-  "homepage": "https://github.com/foundersandcoders/fac-jobs-board#readme"
+  "homepage": "https://github.com/foundersandcoders/fac-jobs-board#readme",
+  "dependencies": {
+    "handlebars": "^4.0.6",
+    "hapi": "^16.0.1",
+    "inert": "^4.0.3",
+    "pg": "^6.1.0",
+    "vision": "^4.1.1"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
 }
