@@ -7,10 +7,8 @@ const register = (server, options, next) => {
     method: 'GET',
     path: '/jobs',
     handler: (request, reply) => {
-
       getJobs(client, (err, jobs) => {
-        console.log(jobs);
-        reply.view('jobs', { data: jobs })
+        reply.view('jobs', { data: jobs, credentails: getCredentials(request) })
       })
     }
   })

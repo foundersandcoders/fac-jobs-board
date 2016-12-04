@@ -2,5 +2,16 @@
 <nav>
   <div>
     <a href="/">fac-jobs-board</a>
+    {{credentials.username}}
   </div>
+  {{#if username}}
+  <div>
+    Hi {{username}}
+  </div>
+  {{/if}}
+  {{#unless username}}
+  <div>
+    <a href='/login'> login </a>
+  </div>
+  {{/unless}}
 </nav>

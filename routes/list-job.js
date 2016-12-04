@@ -4,7 +4,7 @@ const register = (server, options, next) => {
     path: '/list-job',
     config: { auth: false },
     handler: (request, reply) => {
-      reply.view('list-job')
+      reply.view('list-job', { credentails: getCredentials(request) })
     }
   })
 
