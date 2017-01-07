@@ -8,7 +8,7 @@ const register = (server, options, next) => {
     path: '/jobs',
     handler: (request, reply) => {
       getJobs(client, (err, jobs) => {
-        reply.view('jobs', { data: jobs, credentails: getCredentials(request) })
+        reply.view('jobs', { data: jobs, credentials: getCredentials(request) })
       })
     }
   })

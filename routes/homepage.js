@@ -6,7 +6,7 @@ const register = (server, options, next) => {
     path: '/',
     config: { auth: false },
     handler: (request, reply) => {
-      reply.view('index', { credentails: getCredentials(request) })
+      reply.view('index', { credentials: getCredentials(request) })
     }
   })
 
