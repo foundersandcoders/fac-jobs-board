@@ -1,4 +1,4 @@
-const getJobs = require('../db/getJobs')
+const getJobs = require('../db/get_jobs')
 const client = require('../db/db_init')
 const { getCredentials } = require('../plugins/github_auth.js')
 
