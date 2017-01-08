@@ -40,13 +40,14 @@ const authHandler = (req, reply, tokens, profile) => {
 }
 
 const validateJWT = (decoded, request, cb) => {
- cb(null, decoded.isFac)
+  cb(null, decoded.isFac)
 }
 
 authOpts = {
   key: process.JWT_SECRET,
   verifyFunc: validateJWT,
-  verifyOptions: { algorithms: [ 'HS256' ] }
+  verifyOptions: { algorithms: [ 'HS256' ] },
+  cookieKey: 'facToken'
 }
 
 const githubAuth = {
