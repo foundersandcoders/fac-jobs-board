@@ -5,7 +5,7 @@ const Handlebars = require('handlebars')
 
 require('env2')('.env')
 
-const githubAuth = require('./plugins/github_auth.js')
+const { githubAuth } = require('./plugins/github_auth.js')
 const jobsEndpoint = require('./routes/jobs.js');
 const listJobEndpoint = require('./routes/list-job.js');
 const homepageEndpoint = require('./routes/homepage.js');
@@ -19,12 +19,17 @@ server.connection({ port })
 server.register([
   Inert,
   Vision,
-  githubAuth,
-  jobsEndpoint,
-  listJobEndpoint,
-  homepageEndpoint
+  githubAuth
 ], err => {
   if (err) throw err
+
+  server.register([
+    jobsEndpoint,
+    listJobEndpoint,
+    homepageEndpoint
+  ], err => {
+    if (err) throw err
+  })
 
   server.views({
     engines: { html: Handlebars },
