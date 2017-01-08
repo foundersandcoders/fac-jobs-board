@@ -1,8 +1,6 @@
-const mockData = require('../fake_jobs.js');
-const getJobs = require('../db/getJobs');
-const client = require('../db/db_init');
-const { getCredentials } = require('../plugins/github_auth.js');
-
+const getJobs = require('../db/getJobs')
+const client = require('../db/db_init')
+const { getCredentials } = require('../plugins/github_auth.js')
 
 const register = (server, options, next) => {
   server.route({
@@ -10,6 +8,7 @@ const register = (server, options, next) => {
     path: '/jobs',
     handler: (request, reply) => {
       getJobs(client, (err, jobs) => {
+        if (err) return reply(err)
         reply.view('jobs', { data: jobs, credentials: getCredentials(request) })
       })
     }

@@ -1,15 +1,14 @@
-function getJobs (client, callback) {
+const allJobsQuery = 'SELECT * FROM jobs'
 
-      jobQuery = 'SELECT * FROM jobs';
+const getJobs = (client, callback) => {
+  client.query(allJobsQuery, (error, response) => {
+    if (error) {
+      console.error('`jobQuery`', error)
+      return callback(error)
+    }
 
-    client.query(jobQuery, (error, response) => {
-
-        if (error) {
-            console.error("`jobQuery`", error);
-            return callback(error);
-        }
-        callback(null, response.rows);
-    });
+    callback(null, response.rows)
+  })
 }
 
-module.exports = getJobs;
+module.exports = getJobs

@@ -6,9 +6,9 @@ const Handlebars = require('handlebars')
 require('env2')('.env')
 
 const { githubAuth } = require('./plugins/github_auth.js')
-const jobsEndpoint = require('./routes/jobs.js');
-const listJobEndpoint = require('./routes/list-job.js');
-const homepageEndpoint = require('./routes/homepage.js');
+const jobsEndpoint = require('./routes/jobs.js')
+const listJobEndpoint = require('./routes/list-job.js')
+const homepageEndpoint = require('./routes/homepage.js')
 
 const port = process.env.PORT || 4000
 
@@ -56,4 +56,4 @@ server.register([
   })
 })
 
-module.exports = server;
+module.exports = server
