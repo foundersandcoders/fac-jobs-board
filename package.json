@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node start_server.js",
+    "lint": "standard",
+    "fix-lint": "standard --fix",
     "postgres": "postgres -D /usr/local/var/postgres",
     "heroku:postgres": "heroku pg:psql --app fac-jobs-board",
     "load-schema": "heroku pg:psql --app fac-jobs-board < ./db/schema.txt"
@@ -32,6 +34,7 @@
     "vision": "^4.1.1"
   },
   "devDependencies": {
+    "standard": "^8.6.0",
     "tape": "^4.6.3"
   }
 }
